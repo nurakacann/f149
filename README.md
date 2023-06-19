@@ -41,5 +41,7 @@ Takım Flutter 149
 
 - **Ürün Durumu**: Ekran görüntüleri:
   ![Screenshot 1](https://github.com/nurakacann/f149/blob/main/sprint1/miro.png)
+  ![Screenshot 1](https://github.com/nurakacann/f149/blob/main/sprint1/1sas.png)
+  ![Screenshot 1](https://github.com/nurakacann/f149/blob/main/sprint1/2sas.png)
 
 ---
