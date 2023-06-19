@@ -40,6 +40,6 @@ Takım Flutter 149
 
 
 - **Ürün Durumu**: Ekran görüntüleri:
-  ![Screenshot 1](https://github.com/OyunveUygulamaAkademisi/Bootcamp2022Example/blob/main/ProjectManagement/Sprint1Documents/product1.png)
+  ![Screenshot 1](https://github.com/nurakacann/f149/blob/main/sprint1/miro.png)
 
 ---
