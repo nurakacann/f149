@@ -37,7 +37,9 @@ Takım Flutter 149
 
 ## Juriye Not
 
+# Sprint 1
 
-
+- **Ürün Durumu**: Ekran görüntüleri:
+  ![Screenshot 1](https://github.com/nurakacann/f149/blob/main/sprint1/miro.png)
 
 ---
