@@ -21,7 +21,7 @@ Takım Flutter 149
 
 ## Ürün Açıklaması
 
-... Evcil hayvanlarınızın fotoğraflarını paylaşabileceğiniz, onlara yeni arkadaşlar bulabileceğiniz, veya evcil hayvan sahiplenip/sahiplendirebileceğiniz hayvanlarınıza özel bir sosyal medya ugulamasıdır. ... Aracılığıyla sadece hayvanlarınız değil hayvanseverler de birbirleri ile iletişime geçebilir ve kendileri gibi hayvanseverlerle buluşabilirler. Yeni hayvanları hakkında diğer hayvan severlerle iletişime geçebilir ve onlarla bilgi alış verişinde bulunabilirler. ... sayesinde küçük dostlarınız artık yalnız kalmayacak.
+Evcil hayvanlarınızın fotoğraflarını paylaşabileceğiniz, onlara yeni arkadaşlar bulabileceğiniz, veya evcil hayvan sahiplenip/sahiplendirebileceğiniz hayvanlarınıza özel bir sosyal medya ugulamasıdır. ... Aracılığıyla sadece hayvanlarınız değil hayvanseverler de birbirleri ile iletişime geçebilir ve kendileri gibi hayvanseverlerle buluşabilirler. Yeni hayvanları hakkında diğer hayvan severlerle iletişime geçebilir ve onlarla bilgi alış verişinde bulunabilirler. ... sayesinde küçük dostlarınız artık yalnız kalmayacak.
 
 - **Uygulama birincil fonksiyonu**: Evcil hayvan sahiplerinin çevresindeki diğer hayvan sahipleri ile iletişime geçerek sosyalleşmelerini sağlamak.
 
@@ -29,7 +29,7 @@ Takım Flutter 149
 
 ## Ürün Özellikleri
 
-- Evcil hayvanları sostyalleştirmek.
+- Evcil hayvanları sosyalleştirmek.
 - Hayvan severlerin iletişimini arttırmak.
 - Hayvan sahiplenmeye ve sahiplendirmeye teşvik etmek.
 
