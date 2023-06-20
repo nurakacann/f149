@@ -6,7 +6,7 @@ Takım Flutter 149
 
 ## Takım Elemanları
 - İlkem Gelendost: Scrum Master / Developer
-- Bilal Işıldar: Prouct Owner / Developer
+- Bilal Işıldar: Product Owner / Developer
 - Burak Yasin Belli: Developer
 - Nura Kaçan: Developer
 - Nazife Bütün: Developer
@@ -45,7 +45,7 @@ Takım Flutter 149
 
 - **Ürün Durumu**: Ekran görüntüleri:
   ![Screenshot 1](https://github.com/nurakacann/f149/blob/main/sprint1/miro.png)
-  ![Screenshot 1](https://github.com/nurakacann/f149/blob/main/sprint1/1sas.png)
-  ![Screenshot 1](https://github.com/nurakacann/f149/blob/main/sprint1/2sas.png)
+  ![Screenshot 1](https://github.com/nurakacann/f149/blob/main/sprint1/login.png)
+  ![Screenshot 1](https://github.com/nurakacann/f149/blob/main/sprint1/signup.png)
 
 ---
