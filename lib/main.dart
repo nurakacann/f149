@@ -1,6 +1,6 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:patico/home.dart';
+import 'package:patico/pages/login_page.dart';
+import 'package:patico/pages/register_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,10 +11,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       title: 'F-149',
       debugShowCheckedModeBanner: false,
-      home: HomePage(),
+      home: RegisterPage(),
     );
   }
 }

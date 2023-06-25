@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:patico/pages/Posts.dart';
-import 'package:flutter/cupertino.dart';
 
 class homepage extends StatelessWidget {
   final List people = [

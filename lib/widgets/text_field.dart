@@ -26,18 +26,25 @@ class _MyTextFieldState extends State<MyTextField> {
       controller: widget.controller,
       obscureText: widget.obscureText && !showPassword,
       decoration: InputDecoration(
-        enabledBorder: const OutlineInputBorder(
-            borderSide: BorderSide(color: Colors.white)),
+        enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(0),
+            borderSide: const BorderSide(color: Colors.white)),
         focusedBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: Colors.grey.shade400)),
+          borderSide: BorderSide(color: Colors.grey.shade400),
+          borderRadius: BorderRadius.circular(0),
+        ),
         fillColor: Colors.grey.shade200,
         filled: true,
         hintText: widget.hintText,
-        hintStyle: TextStyle(color: Colors.grey[500]),
+        hintStyle: TextStyle(color: Colors.grey[400]),
         suffixIcon: widget.showPasswordIcon && widget.obscureText
             ? IconButton(
                 icon: Icon(
-                    showPassword ? Icons.visibility : Icons.visibility_off),
+                  showPassword
+                      ? Icons.visibility_outlined
+                      : Icons.visibility_off_outlined,
+                  color: Colors.grey[400],
+                ),
                 onPressed: () {
                   setState(() {
                     showPassword = !showPassword;
