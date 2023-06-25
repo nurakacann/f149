@@ -1,13 +1,25 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class profilepage extends StatelessWidget {
+  final user = FirebaseAuth.instance.currentUser!;
+
+  void signUserOut() {
+    FirebaseAuth.instance.signOut();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.pink.shade200,
-        title: Text('Profile'),
+        title: const Text('Profile'),
+        actions: [
+          IconButton(
+            onPressed: signUserOut,
+            icon: const Icon(Icons.logout),
+          )
+        ],
       ),
       body: const Padding(
         padding: EdgeInsets.all(16.0),
@@ -40,6 +52,3 @@ class profilepage extends StatelessWidget {
     );
   }
 }
-
-
-

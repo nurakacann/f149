@@ -1,8 +1,14 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:patico/auth/auth.dart';
 import 'package:patico/auth/login_or_register.dart';
+import 'package:patico/firebase_options.dart';
 
-
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const MyApp());
 }
 
@@ -14,7 +20,7 @@ class MyApp extends StatelessWidget {
     return const MaterialApp(
       title: 'F-149',
       debugShowCheckedModeBanner: false,
-      home: LoginOrRegister(),
+      home: AuthPage(),
     );
   }
 }
