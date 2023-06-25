@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "444723023529",
+    "project_id": "f149-70a52",
+    "storage_bucket": "f149-70a52.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:444723023529:android:3be2502a3414812dbf63b8",
+        "android_client_info": {
+          "package_name": "com.example.patico"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "444723023529-cb24cn6so9ml59kubcjmqf1831ah2srs.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC6N07FB_7l--kQ0d1ZJM6_-ED7nr1ESDg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "444723023529-cb24cn6so9ml59kubcjmqf1831ah2srs.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "444723023529-gbd8sj856igrdlgciqbgl14b1veb95rh.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.patico"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

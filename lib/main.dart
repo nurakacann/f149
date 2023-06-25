@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:patico/pages/login_page.dart';
-import 'package:patico/pages/register_page.dart';
+import 'package:patico/auth/login_or_register.dart';
+
 
 void main() {
   runApp(const MyApp());
@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
     return const MaterialApp(
       title: 'F-149',
       debugShowCheckedModeBanner: false,
-      home: RegisterPage(),
+      home: LoginOrRegister(),
     );
   }
 }
