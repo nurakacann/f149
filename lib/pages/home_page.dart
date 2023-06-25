@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:patico/pages/Posts.dart';
 
-class homepage extends StatelessWidget {
+class HomePage extends StatelessWidget {
   final List people = [
     "Bilal",
     "Nura",
@@ -10,21 +10,22 @@ class homepage extends StatelessWidget {
     "İlkem",
   ];
 
+  HomePage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.pink.shade200,
-        title: const
-        Text('PatiCo'),
-
+        title: const Text('PatiCo'),
       ),
       body: Column(
         children: [
           //Posts
           Expanded(
-            child: ListView.builder(itemCount: people.length,
-                itemBuilder: (context,index) {
+            child: ListView.builder(
+                itemCount: people.length,
+                itemBuilder: (context, index) {
                   return Post(
                     name: people[index],
                   );
@@ -33,7 +34,6 @@ class homepage extends StatelessWidget {
         ],
       ),
     );
-
   }
 
   Widget buildInfoRow(String label, TextStyle textStyle) {

@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 
-class searchpage extends StatelessWidget {
+class SearchPage extends StatelessWidget {
+  const SearchPage({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return Center(
+    return const Center(
       child: Text(
           'search page'
       ),

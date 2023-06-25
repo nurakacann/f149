@@ -1,8 +1,23 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-class profilepage extends StatelessWidget {
-  final user = FirebaseAuth.instance.currentUser!;
+class ProfilPage extends StatefulWidget {
+  const ProfilPage({Key? key}) : super(key: key);
+
+  @override
+  State<ProfilPage> createState() => _ProfilPageState();
+}
+
+class _ProfilPageState extends State<ProfilPage> {
+  late User user;
+  late String userEmail;
+
+  @override
+  void initState() {
+    super.initState();
+    user = FirebaseAuth.instance.currentUser!;
+    userEmail = user.email!;
+  }
 
   void signUserOut() {
     FirebaseAuth.instance.signOut();
@@ -21,13 +36,13 @@ class profilepage extends StatelessWidget {
           )
         ],
       ),
-      body: const Padding(
-        padding: EdgeInsets.all(16.0),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
         child: Center(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Padding(
+              const Padding(
                 padding: EdgeInsets.all(9.0),
                 child: CircleAvatar(
                   radius: 80,
@@ -35,15 +50,15 @@ class profilepage extends StatelessWidget {
                   //backgroundImage: NetworkImage(profilePhotoUrl),
                 ),
               ),
-              SizedBox(height: 16.0),
-              Text(
+              const SizedBox(height: 16.0),
+              const Text(
                 'Name Surname',
                 style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
               ),
-              SizedBox(height: 8.0),
+              const SizedBox(height: 8.0),
               Text(
-                'email',
-                style: TextStyle(fontSize: 18),
+                userEmail,
+                style: const TextStyle(fontSize: 18),
               ),
             ],
           ),

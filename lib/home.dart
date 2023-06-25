@@ -3,14 +3,14 @@ import 'package:patico/pages/home_page.dart';
 import 'package:patico/pages/profile_page.dart';
 import 'package:patico/pages/search_page.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+class HomePageNavigator extends StatefulWidget {
+  const HomePageNavigator({Key? key}) : super(key: key);
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<HomePageNavigator> createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomePageState extends State<HomePageNavigator> {
   int _selectedIndex = 0;
   void _navigateBottomBar(int index) {
     setState(() {
@@ -19,9 +19,9 @@ class _HomePageState extends State<HomePage> {
   }
 
   final List<Widget> _pages = [
-    homepage(),
-    searchpage(),
-    profilepage(),
+    HomePage(),
+     SearchPage(),
+    ProfilPage(),
   ];
 
   @override
