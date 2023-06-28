@@ -17,6 +17,17 @@ class _RegisterPageState extends State<RegisterPage> {
   final passwordTextController = TextEditingController();
   final confirimPasswordTextController = TextEditingController();
 
+  //sign user up
+  void signUp() async {
+    //show loading circle
+    showDialog(
+      context: context,
+      builder: (context) => const Center(
+        child: CircularProgressIndicator(),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -66,7 +77,7 @@ class _RegisterPageState extends State<RegisterPage> {
 
                 //sign in button
                 MyButton(
-                  onTap: () {},
+                  onTap: signUp,
                   text: 'KAYIT OL',
                   textColor: Colors.white,
                   buttonColor: Colors.orange.shade400,

@@ -1,7 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:patico/auth/auth.dart';
-import 'package:patico/auth/login_or_register.dart';
 import 'package:patico/firebase_options.dart';
 
 void main() async {

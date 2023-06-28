@@ -15,10 +15,12 @@ class _ProfilPageState extends State<ProfilPage> {
   @override
   void initState() {
     super.initState();
+
     user = FirebaseAuth.instance.currentUser!;
     userEmail = user.email!;
   }
 
+  // SİGN USER OUT
   void signUserOut() {
     FirebaseAuth.instance.signOut();
   }
@@ -27,7 +29,7 @@ class _ProfilPageState extends State<ProfilPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.pink.shade200,
+        backgroundColor: Colors.orange.shade400,
         title: const Text('Profile'),
         actions: [
           IconButton(
