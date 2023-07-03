@@ -47,6 +47,9 @@ class _ProfilPageState extends State<ProfilPage> {
               const Padding(
                 padding: EdgeInsets.all(9.0),
                 child: CircleAvatar(
+                  backgroundImage: NetworkImage(
+                      'https://images.unsplash.com/photo-1517849845537-4d257902454a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cGV0JTIwcHJvZmlsZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60'
+                  ),
                   radius: 80,
                   backgroundColor: Colors.grey,
                   //backgroundImage: NetworkImage(profilePhotoUrl),

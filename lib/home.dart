@@ -2,9 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:patico/pages/home_page.dart';
 import 'package:patico/pages/profile_page.dart';
 import 'package:patico/pages/search_page.dart';
+import 'package:patico/pages/add_page.dart';
+import 'package:patico/utils/colors.dart';
 
 class HomePageNavigator extends StatefulWidget {
   const HomePageNavigator({Key? key}) : super(key: key);
+
 
   @override
   State<HomePageNavigator> createState() => _HomePageState();
@@ -12,6 +15,7 @@ class HomePageNavigator extends StatefulWidget {
 
 class _HomePageState extends State<HomePageNavigator> {
   int _selectedIndex = 0;
+
   void _navigateBottomBar(int index) {
     setState(() {
       _selectedIndex = index;
@@ -20,8 +24,10 @@ class _HomePageState extends State<HomePageNavigator> {
 
   final List<Widget> _pages = [
     HomePage(),
-     SearchPage(),
+    AddPage(),
+    SearchPage(),
     ProfilPage(),
+
   ];
 
   @override
@@ -32,10 +38,15 @@ class _HomePageState extends State<HomePageNavigator> {
         currentIndex: _selectedIndex,
         onTap: _navigateBottomBar,
         type: BottomNavigationBarType.fixed,
-        items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-          BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Search'),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
+        items: [
+          BottomNavigationBarItem(icon: Icon(Icons.home, size:35, color: _selectedIndex==0 ?  primaryColor: secondaryColor,),
+              label: ''),
+          BottomNavigationBarItem(icon: Icon(Icons.add, size:35, color: _selectedIndex==1 ?  primaryColor: secondaryColor,),
+              label: ''),
+          BottomNavigationBarItem(icon: Icon(Icons.search, size:35, color: _selectedIndex==2 ?  primaryColor: secondaryColor,),
+              label: ''),
+          BottomNavigationBarItem(icon: Icon(Icons.person, size:35, color: _selectedIndex==3 ?  primaryColor: secondaryColor,),
+              label: ''),
         ],
       ),
     );
