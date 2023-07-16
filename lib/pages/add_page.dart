@@ -1,7 +1,8 @@
-
+import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:patico/utils/colors.dart';
 import 'package:image_picker/image_picker.dart';
+
+import '../utils/colors.dart';
 
 class AddPage extends StatefulWidget {
   const AddPage({Key? key}) : super(key: key);
@@ -11,120 +12,220 @@ class AddPage extends StatefulWidget {
 }
 
 class _AddPageState extends State<AddPage> {
-  final ImagePicker _imagePicker = ImagePicker();
-  XFile? _selectedImage;
+  File? _imageFile;
+  TextEditingController _nameController = TextEditingController();
+  TextEditingController _genusController = TextEditingController();
+  TextEditingController _genderController = TextEditingController();
+  TextEditingController _ageController = TextEditingController();
+  TextEditingController _cityController = TextEditingController();
+  TextEditingController _vaccinsController = TextEditingController();
 
-  _selectImage(BuildContext context) async {
-    final ImageSource? source = await showDialog<ImageSource>(
+  Future<void> _showImageSourceDialog() async {
+    showDialog(
       context: context,
       builder: (BuildContext context) {
-        return SimpleDialog(
-          title: const Text('Select Image',
-            style: TextStyle(
-              color: Colors.black45,
-              fontSize: 25,
+        return AlertDialog(
+          title: const Text('Select Image Source'),
+          content: SingleChildScrollView(
+            child: ListBody(
+              children: <Widget>[
+                GestureDetector(
+                  child: const Text('Pick Image from Gallery'),
+                  onTap: () {
+                    _getImageFromGallery();
+                    Navigator.pop(context);
+                  },
+                ),
+                const SizedBox(height: 16),
+                GestureDetector(
+                  child: const Text('Take Image from Camera'),
+                  onTap: () {
+                    _getImageFromCamera();
+                    Navigator.pop(context);
+                  },
+                ),
+              ],
             ),
           ),
-
-          children: [
-            SimpleDialogOption(
-              child: const Text('Take a photo',
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
-                ),
-
-              ),
-              onPressed: () {
-                Navigator.pop(context, ImageSource.camera);
-              },
-            ),
-            SimpleDialogOption(
-              child: const Text('Choose from gallery',
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              onPressed: () {
-                Navigator.pop(context, ImageSource.gallery);
-              },
-            ),
-          ],
         );
       },
     );
+  }
 
-    if (source != null) {
-      final XFile? selectedImage = await _imagePicker.pickImage(source: source);
-      if (selectedImage != null) {
-        setState(() {
-          _selectedImage = selectedImage;
-        });
+  Future<void> _getImageFromGallery() async {
+    final pickedImage = await ImagePicker().pickImage(source: ImageSource.gallery);
+
+    setState(() {
+      if (pickedImage != null) {
+        _imageFile = File(pickedImage.path);
       }
-    }
+    });
+  }
+
+  Future<void> _getImageFromCamera() async {
+    final pickedImage = await ImagePicker().pickImage(source: ImageSource.camera);
+
+    setState(() {
+      if (pickedImage != null) {
+        _imageFile = File(pickedImage.path);
+      }
+    });
+  }
+
+  @override
+  void dispose() {
+    _nameController.dispose();
+    _genusController.dispose();
+    _genderController.dispose();
+    _ageController.dispose();
+    _cityController.dispose();
+    _vaccinsController.dispose();
+    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: primaryColor,
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back_ios),
-          onPressed: () {
-            // Implement the desired functionality
-          },
-        ),
-        title: Text('Post to'),
-        centerTitle: false,
+        backgroundColor: Colors.orange.shade400,
+        title: const Text('Create a post'),
         actions: [
-          TextButton(
-            onPressed: () {
-              // Implement the desired functionality
-            },
-            child: const Text(
-              'Post',
-              style: TextStyle(
-                color: Colors.white,
-                fontWeight: FontWeight.bold,
-                fontSize: 20,
-              ),
-            ),
+          IconButton(
+            onPressed: _showImageSourceDialog,
+            icon: const Icon(Icons.add_a_photo),
           ),
         ],
       ),
-      body: Column(
+      body: ListView(
+        padding: const EdgeInsets.all(16),
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(20.0),
-                child: CircleAvatar(
-                  backgroundImage: NetworkImage(
-                    'https://images.unsplash.com/photo-1517849845537-4d257902454a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cGV0JTIwcHJvZmlsZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60'
-                  ),
-                  radius: 40,
+          if (_imageFile != null)
+            Container(
+              height: 250,
+              width: 250,
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: FileImage(_imageFile!),
+                  fit: BoxFit.cover,
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.all(20.0),
-                child: ElevatedButton(
-                  onPressed: () => _selectImage(context),
-                  child: Text('Select Image'),
-                  style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all<Color>(Colors.black54),
-                  ),
-                ),
+            ),
+          const SizedBox(height: 16),
+          TextField(
+            controller: _nameController,
+            decoration: const InputDecoration(
+              labelText: 'Name:',
+              labelStyle: TextStyle(
+                fontWeight: FontWeight.bold,
               ),
-            ],
+              focusedBorder: OutlineInputBorder(
+                borderSide: BorderSide(color: primaryColor),
+              ),
+            ),
+
           ),
+          const SizedBox(height: 8),
+          TextField(
+            controller: _genusController,
+            decoration: const InputDecoration(
+              labelText: 'Genus:',
+              labelStyle: TextStyle(
+                fontWeight: FontWeight.bold,
+              ),
+              focusedBorder: OutlineInputBorder(
+                borderSide: BorderSide(color: primaryColor),
+              ),
+              focusedErrorBorder: OutlineInputBorder(
+                borderSide: BorderSide(color: Colors.orange),
+              ),
+            ),
+          ),
+          const SizedBox(height: 8),
+          TextField(
+            controller: _genderController,
+            decoration: const InputDecoration(
+              labelText: 'Gender:',
+              labelStyle: TextStyle(
+                fontWeight: FontWeight.bold,
+              ),
+              focusedBorder: OutlineInputBorder(
+                borderSide: BorderSide(color: primaryColor),
+              ),
+            ),
+          ),
+          const SizedBox(height: 8),
+          TextField(
+            controller: _ageController,
+            decoration: const InputDecoration(
+              labelText: 'Age:',
+              labelStyle: TextStyle(
+                fontWeight: FontWeight.bold,
+              ),
+              focusedBorder: OutlineInputBorder(
+                borderSide: BorderSide(color: primaryColor),
+              ),
+            ),
+          ),
+          const SizedBox(height: 8),
+          TextField(
+            controller: _cityController,
+            decoration: const InputDecoration(
+              labelText: 'City:',
+              labelStyle: TextStyle(
+                fontWeight: FontWeight.bold,
+              ),
+              focusedBorder: OutlineInputBorder(
+                borderSide: BorderSide(color: primaryColor),
+              ),
+            ),
+          ),
+          const SizedBox(height: 8),
+          TextField(
+            controller: _vaccinsController,
+            decoration: const InputDecoration(
+              labelText: 'Vaccins:',
+              labelStyle: TextStyle(
+                fontWeight: FontWeight.bold,
+              ),
+              focusedBorder: OutlineInputBorder(
+                borderSide: BorderSide(color: primaryColor),
+              ),
+            ),
+          ),
+          const SizedBox(height: 16),
+          ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              primary: Colors.grey,
+              padding: EdgeInsets.zero,
+            ),
+            onPressed: () {
+              // Perform the desired functionality, e.g., submit the data
+              String name = _nameController.text;
+              String genus = _genusController.text;
+              String gender = _genderController.text;
+              String age = _ageController.text;
+              String city = _cityController.text;
+              String vaccins = _vaccinsController.text;
+
+              // Use the values as needed
+              print('Name: $name');
+              print('Genus: $genus');
+              print('Gender: $gender');
+              print('Age: $age');
+              print('City: $city');
+              print('Vaccins: $vaccins');
+            },
+            child: const Text('Submit'),
+          ),
+
         ],
       ),
     );
   }
+}
+
+void main() {
+  runApp(const MaterialApp(
+    home: AddPage(),
+  ));
 }
