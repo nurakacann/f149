@@ -29,7 +29,18 @@ class _HomePageState extends State<HomePageNavigator> {
     ProfilPage(),
 
   ];
-
+  /*void searchFunc(String value) {
+    for (var people in peopleList) {
+      if (people!.firstName!
+          .toLowerCase()
+          .trim()
+          .contains(searchController.text.toLowerCase().trim())) {
+        searchList.add(people);
+        setState(() {});
+      }
+    }
+  }
+*/
   @override
   Widget build(BuildContext context) {
     return Scaffold(
