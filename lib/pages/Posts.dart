@@ -54,10 +54,7 @@ class Post extends StatelessWidget {
         buildInfoRow("Vaccins", boldTextStyle),
         const Padding(
           padding: EdgeInsets.only(top: paddingValue, left: paddingValue, right: paddingValue),
-          child: Text(
-            "şdfhnghslknlkfldjnhlknljsdgöbsdfgbkjsdfbgkjdfbnskfjbdkfgkjhsjkdkökbjfgıkbdklfögjdkfbsg",
-            style: normalTextStyle,
-          ),
+
         ),
       ],
     );
